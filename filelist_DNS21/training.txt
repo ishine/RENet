@@ -1,0 +1,1 @@
+contents example: clean_fileid_19720.wav|/root/autodl-tmp/challenge/noisy/book_00737_chp_0013_reader_08682_75_NeXK6-kYUzA-door_Freesound_validated_359124_1-jFw0eRD5L08_case_noise_bl_snr6_tl-29_fileid_19720.wav

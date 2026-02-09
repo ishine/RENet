@@ -1,0 +1,1 @@
+contents example: clean_fileid_132.wav|/root/autodl-tmp/DNS-Challenge/datasets/test_set/synthetic/no_reverb/noisy/clnsp439_washer_246507_4_snr12_tl-29_fileid_132.wav

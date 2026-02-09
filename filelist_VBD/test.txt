@@ -1,0 +1,1 @@
+contents example: p232_001|filelist_VBD/wavs_clean/p232_001.wav
