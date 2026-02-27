@@ -24,7 +24,7 @@ sys.path.append("cal_metrics/UTMOS_demo")
 # sys.path.append("dnsmos") # Uncomment if needed
 
 from cal_metrics.dnsmos.dnsmos_p808_local import ComputeScore_
-from cal_metrics.UTMOS_demo.score import Score
+from cal_metrics.UTMOS_demo.score import Score # clone the UTMOS project from https://huggingface.co/spaces/sarulab-speech/UTMOS-demo, not provided here because of its large size
 import logging
 
 N_FFT = 400

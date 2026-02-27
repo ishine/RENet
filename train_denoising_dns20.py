@@ -19,7 +19,6 @@ from dataset import mag_pha_stft, mag_pha_istft
 from models.model import MPNet, pesq_score, phase_losses
 from models.mpd_and_metricd import MetricDiscriminator, batch_pesq
 from utils import scan_checkpoint, load_checkpoint, save_checkpoint
-from omnidirectional_phase_loss import WeightedOmnidirectionalPhaseLoss
 
 torch.backends.cudnn.benchmark = True
 
@@ -33,7 +32,6 @@ def train(rank, a, h):
 
     generator = MPNet(h).to(device)
     discriminator = MetricDiscriminator().to(device)
-    phase_loss_fn = WeightedOmnidirectionalPhaseLoss().to(device)
     if rank == 0:
         print(generator)
         num_params = 0

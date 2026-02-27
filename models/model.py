@@ -71,14 +71,13 @@ class ComplexConv(nn.Module):
 
 class SPConvTranspose2dComplex(nn.Module):
 
-    def __init__(self, in_channels, out_channels, kernel_size, r=1, up=False, **kwargs):
+    def __init__(self, in_channels, out_channels, kernel_size, r=1, **kwargs):
         super(SPConvTranspose2dComplex, self).__init__()
         self.pad1 = nn.ConstantPad2d((kernel_size[1]//2, kernel_size[1]//2, kernel_size[0]-1, 0), value=0.)
         self.out_channels = out_channels
         self.conv = ComplexConv(in_channels, out_channels * r, kernel_size=kernel_size, stride=(1, 1), **kwargs)
         self.r = r
-        if up == True:
-            self.conv._init_phase_preserving(init_mode='up')
+
     def forward(self, real, imag):
         real = self.pad1(real)
         imag = self.pad1(imag)
@@ -99,8 +98,7 @@ class LearnableSigmoid3d(nn.Module):
         param_shape_original = (in_features_1, 1, in_features_2)
         self.slope = nn.Parameter(torch.ones(param_shape_original))
         self.slope.requiresGrad = True
-        self.beta = initial_beta # nn.Parameter(torch.ones(param_shape_original)*initial_beta)
-        # self.beta.requiresGrad = True
+        self.beta = initial_beta
 
     def forward(self, x):
         return self.beta * torch.sigmoid(self.slope * x)
@@ -221,9 +219,6 @@ class InteConvBlockTranspose(nn.Module):
 class TSTransformerBlock(nn.Module):
     def __init__(self,h):
         super(TSTransformerBlock, self).__init__()
-
-        # t_pe = RotaryEmbedding(16)
-        # f_pe = RotaryEmbedding(16)
         self.time_transformer = TransformerBlock(h)
         self.freq_transformer = TransformerBlock(h)
 

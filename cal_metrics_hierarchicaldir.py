@@ -24,7 +24,7 @@ sys.path.append("cal_metrics/UTMOS_demo")
 # sys.path.append("dnsmos") # Uncomment if needed
 
 from cal_metrics.dnsmos.dnsmos_p808_local import ComputeScore_
-from cal_metrics.UTMOS_demo.score import Score
+from cal_metrics.UTMOS_demo.score import Score # clone the UTMOS project from https://huggingface.co/spaces/sarulab-speech/UTMOS-demo, not provided here because of its large size
 import logging
 
 
@@ -104,9 +104,9 @@ class PhaseMetricsCalculator(nn.Module):
         Calculates PD and WOPD.
         
         1. PD (Phase Distance):
-           - Defined in MP-SENet (Lu et al., 2025) and Choi et al. (2019) [cite: 1229].
+           - Defined in MP-SENet (Lu et al., 2025) and Choi et al. (2019).
            - Definition: Average angle difference weighted by target magnitude.
-           - Unit: Degrees (0 to 180)[cite: 1287].
+           - Unit: Degrees (0 to 180).
            
         2. WOPD (Weighted Omni-directional Phase Difference):
            - Defined in BAPEN (Eq. 16).
