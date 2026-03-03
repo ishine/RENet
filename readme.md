@@ -19,6 +19,28 @@ Training logs, audio samples and supplementary analysis: https://wangchengzhong.
 
 ---
 
+## 🚀 News: Deployment
+For practical deployment, we provide a streaming version of the model.
+
+This model is not designed for extremely compute-limited edge devices (it requires >30G MACs/s). It is better suited for cloud-side deployment where high-quality real-time universal speech restoration is required (typical latency: ~25 ms).
+
+Use the following commands for streaming training and inference:
+
+### Streaming Version Training
+```
+python -m streaming.train_universal_streaming --config streaming/config.json
+```
+
+### Streaming Inference
+```
+python -m streaming.demo_app  --input_wav /your/path/to/wav --cuda_graph
+```
+
+Note:
+- The code under `streaming/` is an initial streaming implementation and is intended for further optimization.
+
+---
+
 ## Method Overview
 
 ### Architecture
